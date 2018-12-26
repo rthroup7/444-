@@ -1,30 +1,28 @@
-const Discord = require('discord.js');
-const client = new Discord.Client();
-const convert = require("hh-mm-ss")
-const dateFormat = require('dateformat');
-const fs = require('fs');
-const pretty = require('pretty-ms');
-const rn = require('random-number');
-const moment = require('moment');
-const Canvas = require('canvas')
-const jimp = require('jimp')
-const sql = require('sqlite')
-const ytdl = require("ytdl-core");
-const { Client, Util } = require('discord.js');
-const getYoutubeID = require('get-youtube-id');
+const Discord = require('discord.js');  
+const db = require('quick.db');  
+const hastebin = require('hastebin-gen');  
+const client = new Discord.Client();    
+const Canvas = require('canvas');        
+const fs = require("fs"); 
+const getYoutubeID = require('get-youtube-id'); 
+const moment = require("moment");   
+const { Client, Util } = require('discord.js');  
+const UserBlocked = new Set();  
+const jimp = require('jimp');   
+const math = require('math-expression-evaluator'); 
+const stripIndents = require('common-tags').stripIndents;
+const figlet = require('figlet'); 
+const queue = new Map(); 
+const zalgo = require('zalgolize');   
 const fetchVideoInfo = require('youtube-info');
 const YouTube = require('simple-youtube-api');
+const ytdl = require('ytdl-core');
 const youtube = new YouTube("AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8");
-const queue = new Map();
-var num = 0;
-function clean(text) {
-    if (typeof(text) === "string")
-      return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
-    else
-        return text;
-}
-
-const prefix = "-";
+const sql = require("sqlite");
+ const dateFormat = require('dateformat'); 
+ const pretty = require('pretty-ms') 
+,ti={}  
+,spee={}; 
 
 
 client.on('message', message => {
