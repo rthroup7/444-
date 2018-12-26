@@ -655,15 +655,15 @@ client.on("message", message => {
 
 -    [ ${prefix}stop ] [للتوقيف لاغنية ]
 
--    [ ${prefix}resume ] [لاستئناف الأغنية]
+-    [ ${prefix}resume ] [لاستئناف الأغنية ]
 
--    [ ${prefix}vol ] [ لتغيير حجم الصوت]
+-    [ ${prefix}vol ] [ لتغيير حجم الصوت ]
 
--    [ ${prefix}leave ] [لفصل بوت من Voicechannel الخاص بك]
+-    [ ${prefix}leave ] [ لفصل بوت من Voicechannel  الخاص بك]
 
--    [ ${prefix}queue ] [ تقفيل الشات]
+-    [ ${prefix}queue ] [ لعرض قائمة انتظار الأغاني ]
 
--    [ ${prefix}join ] [فتح الشات] **
+-    [ ${prefix}join ] [انضم الى اروم] **
 
 ● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ●
 
