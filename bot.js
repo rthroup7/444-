@@ -299,7 +299,7 @@ client.on('message', msg => {
 });
 
 client.on('message', message => {       
-if (message.content.startsWith(prefix + 'clear')) { //xRGRx .. By Julian
+if (message.content.startsWith(prefix + 'clear')) { 
 	if(!message.channel.guild) return message.reply(':no_entry: | This Command For Servers Only!'); 
 		if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send(':no_entry: | You dont have **MANAGE_MESSAGES** Permission!');
         if(!message.guild.member(client.user).hasPermission('MANAGE_MESSAGES')) return message.channel.send(':no_entry: | I dont have **MANAGE_MESSAGES** Permission!');
@@ -641,36 +641,40 @@ function play(guild, song) {
 }
  
 client.on("message", message => {
-    if (message.content === `--help`) {
+ if (message.content === prefix + "-help") {
   const embed = new Discord.RichEmbed()
-      .setColor("#000000")
-      .setDescription(`─═══{✯ Music Commands✯}═══─
-════════════
-${prefix}play => To Play A Song From Youtube
-════════════
-${prefix}skip => To Skip The Song And Play The Next Song
-════════════
-${prefix}stop => To Pause The Song
-════════════
-${prefix}resume => To Resume The Song
-════════════
-${prefix}vol => To Change The Volume Song
-════════════
-${prefix}leave => To Disconnect The Bot From Your Voicechannel
-════════════
-${prefix}np => To View The Song Played
-════════════
-${prefix}queue => To View The Songs Queue
-════════════
-${prefix}join => Join To Room
-════════════
+      .setColor("RANDOM")
+      .setThumbnail(message.author.avatarURL)
+      .setDescription(`
 
- `)
-   message.author.sendEmbed(embed)
-      message.channel.send(`**تم ارسال في الخاص**`)
-   
-   }
-   });
+** BOT  ${client.user.username} Commands **
+● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ●
+** -    [ ${prefix}play ]  [لتشغيل أغنية من يوتيوب ]
+
+-    [ ${prefix}skip ] [ لتجاوز الأغنية و  تشغيل  الأغنية التالية ]
+
+-    [ ${prefix}stop ] [للتوقيف لاغنية ]
+
+-    [ ${prefix}resume ] [لاستئناف الأغنية]
+
+-    [ ${prefix}vol ] [ لتغيير حجم الصوت]
+
+-    [ ${prefix}leave ] [لفصل بوت من Voicechannel الخاص بك]
+
+-    [ ${prefix}queue ] [ تقفيل الشات]
+
+-    [ ${prefix}join ] [فتح الشات] **
+
+● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ●
+
+`)
+
+
+message.author.sendEmbed(embed)
+
+}
+});
+
        client.on('message', message =>{
   if(message.content.startsWith(`${prefix}leave`)){
     const voiceChannel = message.member.voiceChannel
@@ -700,6 +704,27 @@ client.on('message', msg => {
      }
     }
 }
+});
+
+
+client.on('message', msg => {
+
+  if (msg.content === '-help') {
+
+    msg.reply('**تم ارسال في الخاص**');
+
+  }
+
+});
+
+client.on('message', msg => {
+
+  if (msg.content === '--help') {
+
+    msg.reply('**تم ارسال في الخاص**');
+
+  }
+
 });
 
 client.login(process.env.BOT_TOKEN);
